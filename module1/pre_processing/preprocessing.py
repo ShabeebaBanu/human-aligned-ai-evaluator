@@ -67,23 +67,6 @@ def preprocess_dataframe(dataframe: pd.DataFrame) -> pd.DataFrame:
     return processed
 
 
-def load_dataset(path: str | Path) -> pd.DataFrame:
-    """Load an Excel or CSV dataset file."""
-    dataset_path = Path(path)
-    if dataset_path.suffix.lower() in {".xlsx", ".xls"}:
-        return pd.read_excel(dataset_path)
-    if dataset_path.suffix.lower() == ".csv":
-        return pd.read_csv(dataset_path)
-    raise ValueError("Dataset must be an .xlsx, .xls, or .csv file.")
-
-
-def save_preprocessed_dataset(dataframe: pd.DataFrame, path: str | Path) -> None:
-    """Save preprocessed data as CSV."""
-    output_path = Path(path)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    dataframe.to_csv(output_path, index=False)
-
-
 def build_preprocessing_summary(dataframe: pd.DataFrame) -> dict[str, object]:
     """Create a small summary for group review."""
     summary: dict[str, object] = {
