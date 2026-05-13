@@ -86,11 +86,61 @@ python -c "import sentence_transformers, spacy, sklearn, pandas; print('All OK')
 
 ## 6. Verify the data accessibility 
 ```bash
-# after setting up everything run the file 'run_pipeline.py'
-python run_pipeline.py 
+# after setting up everything run the file 'pipeline.py'
+# To run pre-processing 
+python pipeline.py preprocess
 
-# ensure output returns data from drive sheet
 
 # if everything are ok, you are good to go with your development works
 ```
+
+## 7. Project Structure Overview
+
+This section briefly explains the purpose of each folder and key files in the project.
+
+### 📁 Folders
+
+- **data/**  
+  Stores all datasets used in the project  
+  - `raw/` → original dataset (from Google Sheets)  
+  - `processed/` → cleaned data after preprocessing  
+  - `features/` → outputs from each feature process (sementic-similarity, contradiction etc)   
+
+- **utils/**  
+  Common helper functions used across modules  
+  - `data_loader.py` → handles loading and saving of various datasets  
+  - `config.py` → stores file paths and configuration variables  
+
+- **models/**  
+  Stores trained machine learning models  
+
+---
+
+### 📄 Key Files
+
+- **modules**  
+  implementation of each module  
+  - `module1/` → preprocessing and semantic analysis etc  
+  - `module2/` → scoring models and training logic  
+  - `module3/` → feedback generation and evaluation  
+
+- **pipeline.py**  
+  Main entry point of the system — used to run preprocessing, training, and prediction commands  
+
+- **requirements.txt**  
+  List of all Python libraries required for the project 
+
+- **train_pipeline.py & predict_pipeline.py**
+  Future use........ 
+
+- **README.md**  
+  Project documentation and setup instructions  
+
+---
+
+### 🧠 Summary
+
+- Data flows from `data/raw` → `processed` → `features` → `outputs`  
+- Each module performs a specific task in the pipeline  
+- `pipeline.py` controls the overall workflow  
  
