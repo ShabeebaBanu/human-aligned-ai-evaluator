@@ -9,7 +9,7 @@ from pathlib import Path
 import pandas as pd
 
 
-ANSWER_COLUMNS = ("synthetic_answer",  "answer", "evaluation_criteria")
+ANSWER_COLUMNS = ( "question" ,"synthetic_answer",  "answer", "evaluation_criteria")
 
 
 def clean_text(value: object) -> str:
